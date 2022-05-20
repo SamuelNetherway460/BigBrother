@@ -1,0 +1,10 @@
+Big Brother v1.0.0 Release Notes
+
+Notes:
+- Initial release.
+
+Features:
+- Logs processes and their threads.
+- Can select which processes to list threads for.
+- Logs COM Ports.
+- Tombstone logging if application Big Brother application falls over.
