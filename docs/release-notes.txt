@@ -1,10 +1,4 @@
-Big Brother v1.0.0 Release Notes
-
-Notes:
-- Initial release.
+Big Brother v1.1.0 Release Notes
 
 Features:
-- Logs processes and their threads.
-- Can select which processes to list threads for.
-- Logs COM Ports.
-- Tombstone logging if application Big Brother application falls over.
+- An application can be launched by Big Brother by specifying -n followed by the application full path in the Big Brother command line arguments. Specifying -n followed by null will not launch an application. Not providing any command line arguments will result in no application being launched by Big Brother.
