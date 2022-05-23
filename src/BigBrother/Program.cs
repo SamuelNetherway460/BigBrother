@@ -1,4 +1,6 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
+using System.IO;
 using BigBrother.logging;
 
 namespace BigBrother
@@ -41,8 +43,18 @@ namespace BigBrother
         static void Main(string[] args)
         {
             Tombstone = new Tombstone("\\emmc\\App\\Logs\\BigBrother\\BB-TOMBSTONE.txt");
+
+            for (int i = 0; i < args.Length; i++)
+            {
+                switch (args[i])
+                {
+                    case "-n":
+                        LaunchApplication(args[i + 1]);
+                        break;
+                }
+            }
+
             Logging.Logger = new Logging.DefaultMessageLogger(RENAME_FILE_DELAY);
-            LaunchApplication();
 
             Logging.Debug(resources.Constants.APP_NAME + " " + resources.Constants.VERSION_PREFIX + resources.Constants.VERSION + resources.Constants.VERSION_POSTFIX);
 
@@ -87,9 +99,27 @@ namespace BigBrother
         /// <summary>
         /// Launches required applications. Often the process under test.
         /// </summary>
-        private static void LaunchApplication()
+        /// <param name="exe">Full path to the .exe or null to not launch an app.</param>
+        private static void LaunchApplication(string exe)
         {
-
+            if (exe.ToLower().Equals("null"))
+            {
+                return;
+            }
+            else
+            {
+                if (File.Exists(exe))
+                {
+                    Logging.Debug("ABOUT TO LAUNCH: " + exe);
+                    System.Diagnostics.Process.Start(exe, string.Empty);
+                    Logging.Debug("LAUNCHED: " + exe);
+                }
+                else
+                {
+                    Console.WriteLine(exe + " does not exist!");
+                    Tombstone.Epitaph(exe + " does not exist!");
+                }
+            }
         }
     }
 }
