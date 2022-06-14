@@ -3,6 +3,7 @@
 
 <p align="center">
   <img src="https://img.shields.io/github/v/release/SamuelNetherway460/BigBrother?sort=semver">
+  <img src="https://img.shields.io/github/last-commit/SamuelNetherway460/BigBrother">
   <img src="https://img.shields.io/badge/platform-Windows%20Embedded%20Compact-blue">
   <img src="https://img.shields.io/github/issues/SamuelNetherway460/BigBrother">
   <img src="https://img.shields.io/github/downloads/SamuelNetherway460/BigBrother/total">
